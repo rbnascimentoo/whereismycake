@@ -1,0 +1,34 @@
+<div>
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th><abbr title="Nº do Sorteio">Nº do Sorteio</abbr></th>
+        <th>Sorteado</th>
+        <th>Apelido</th>
+        <th>Rodada</th>
+        <th>Data do Sorteio</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sorteio of listSorteio[0]">
+        <td>{{ sorteio.numeroSorteio }}</td>
+        <td></td>
+        <td></td>
+        <td>{{ sorteio.rodada }}</td>
+        <td>{{ sorteio.data | date : "dd/MM/y"  }}</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+
+</div>
+
+<br>
+
+<div class="buttons" style="float: right; margin-right: 15px;">
+  <button class="button is-link is-outlined" (click)="novoSorteio()">Novo Sorteio</button>
+</div>

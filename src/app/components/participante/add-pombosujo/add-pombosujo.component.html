@@ -1,0 +1,33 @@
+<div>
+  <form method="POST">
+      <fieldset name=" Participante ">
+        <legend><b> Participante </b></legend>
+        <div class="field">
+          <label class="label">Nome</label>
+          <div class="control">
+            <input id="nome" class="input" type="text" placeholder="Nome do participante" required [(ngModel)]="participante.nome" name="nome">
+          </div>
+          
+        </div>
+        <div class="field">
+          <label class="label">Apelido</label>
+          <div class="control">
+            <input id="apelido" class="input" type="text" placeholder="Apelido do participante" required [(ngModel)]="participante.apelido" name="apelido">
+            
+          </div>
+        </div>
+      </fieldset>
+      <br>
+      <div class="field is-grouped is-grouped-right">
+          <div class="buttons">
+            <button class="button is-primary" (click)="salvarParticipante()" type="submit" >
+              Salvar Participante
+            </button>
+
+            <button class="button is-light" (click)="cancelarInclusaoPombo()" type="reset" >
+              Cancelar
+            </button>
+          </div>
+      </div>
+  </form>
+</div>
