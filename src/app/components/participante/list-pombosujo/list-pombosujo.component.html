@@ -3,9 +3,9 @@
     <thead>
       <tr>
         <th></th>
-        <th>Nome</th>
-        <th>Apelido</th>
-        <th style="width: 190px;">Ações</th>
+        <th>Name</th>
+        <th>Nickname</th>
+        <th style="width: 190px;">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -16,11 +16,11 @@
         <td style="width: 190px;">
 
           <button class="button is-link is-outlined is-warning" (click)="editarParticipante(participante._id)" style="margin-right: 10px;">
-              Editar
+              Edit
           </button>
 
           <button class="button is-link is-outlined is-danger" (click)="excluirParticipante(participante._id)" >
-              Excluir
+              Delete
           </button>
         </td>
       </tr>
@@ -35,5 +35,5 @@
 <br>
 
 <div class="buttons" style="float: right; margin-right: 15px;">
-  <button class="button is-link is-outlined" (click)="novoParticipante()">Novo Participante</button>
+  <button class="button is-link is-outlined" (click)="novoParticipante()">New Participant</button>
 </div>

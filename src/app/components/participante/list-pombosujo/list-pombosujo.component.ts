@@ -34,12 +34,12 @@ export class ListPombosujoComponent implements OnInit {
 
   novoParticipante() {
     localStorage.clear();
-    this.router.navigate(['participante/novo']);
+    this.router.navigate(['participant/new']);
   }
 
   editarParticipante(id: string) {
     localStorage.setItem('id', id);
-    this.router.navigate(['participante/editar']);
+    this.router.navigate(['participant/edit']);
   }
 
   excluirParticipante(_id) {

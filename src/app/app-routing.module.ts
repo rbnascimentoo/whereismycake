@@ -5,14 +5,19 @@ import { ListPombosujoComponent } from './components/participante/list-pombosujo
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddCakeComponent } from './components/cake/add-cake/add-cake.component';
+import { ListCakeComponent } from './components/cake/list-cake/list-cake.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'participante', component: ListPombosujoComponent},
-  {path: 'participante/editar', component: AddPombosujoComponent},
-  {path: 'participante/novo', component: AddPombosujoComponent},
-  {path: 'sorteio', component: ListSorteioComponent},
-  {path: 'sorteio/novo', component: AddSorteioComponent}
+  {path: 'participant', component: ListPombosujoComponent},
+  {path: 'participant/edit', component: AddPombosujoComponent},
+  {path: 'participant/new', component: AddPombosujoComponent},
+  {path: 'sortition', component: ListSorteioComponent},
+  {path: 'sortition/new', component: AddSorteioComponent},
+  {path: 'cake', component: ListCakeComponent},
+  {path: 'cake/edit', component: AddCakeComponent},
+  {path: 'cake/new', component: AddCakeComponent},
 ];
 
 @NgModule({

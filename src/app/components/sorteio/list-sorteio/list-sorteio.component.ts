@@ -35,7 +35,7 @@ export class ListSorteioComponent implements OnInit {
   }
 
   novoSorteio() {
-      this.router.navigate(['sorteio/novo']);
+      this.router.navigate(['sortition/new']);
   }
 
 }

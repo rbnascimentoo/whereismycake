@@ -45,14 +45,14 @@ export class AddPombosujoComponent implements OnInit {
       if (this.participante._id != null && this.participante._id.length > 0) {
         this.participanteService.editarParticipante(this.participante).subscribe(data => {  
           this.createNewParticipante();
-          this.router.navigate(['participante']);
+          this.router.navigate(['participant']);
         }, err => {
           console.log('erro ao atualizar participante!');
         });
       } else {
         this.participanteService.salvarParticipante(this.participante).subscribe(data => {  
           this.createNewParticipante();
-          this.router.navigate(['participante']);
+          this.router.navigate(['participant']);
         }, err => {
           console.log('erro ao salvar participante!');
         });
@@ -75,7 +75,7 @@ export class AddPombosujoComponent implements OnInit {
 
   cancelarInclusaoPombo() {
     this.createNewParticipante();
-    this.router.navigate(['participante']);
+    this.router.navigate(['participant']);
   }
 
 }

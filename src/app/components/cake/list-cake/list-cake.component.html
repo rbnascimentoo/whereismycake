@@ -1,0 +1,42 @@
+<div [hidden]="listCake == null || listCake.length == 0">
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th style="width: 190px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cake of listCake[0]; let i = index" >
+          <td>{{ i+1 }}</td>
+          <td>{{ cake.name }}</td>
+          <td>{{ cake.description }}</td>
+          <td>{{ cake.price | currency: 'R$': 'code' }}</td>
+          <td style="width: 190px;">
+  
+            <button class="button is-link is-outlined is-warning" (click)="editCake(cake._id)" style="margin-right: 10px;">
+                Edit
+            </button>
+  
+            <button class="button is-link is-outlined is-danger" (click)="deleteCake(cake._id)" >
+                Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div [hidden]="listCake != null && listCake.length > 0">
+    Não há bolos.
+  </div>
+  
+  <br>
+  
+  <div class="buttons" style="float: right; margin-right: 15px;">
+    <button class="button is-link is-outlined" (click)="newCake()">New Cake</button>
+  </div>
+  

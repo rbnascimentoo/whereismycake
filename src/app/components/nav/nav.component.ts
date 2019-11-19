@@ -15,15 +15,27 @@ export class NavComponent implements OnInit {
   }
 
   home() {
+    this.clearLocalStorage();
     this.router.navigate(['']);
   }
 
-  pomboSujo() {
-    this.router.navigate(['participante']);
+  participant() {
+    this.clearLocalStorage();
+    this.router.navigate(['participant']);
   }
 
-  sorteio() {
-    this.router.navigate(['sorteio']);
+  sortition() {
+    this.clearLocalStorage();
+    this.router.navigate(['sortition']);
+  }
+
+  cake() {
+    this.clearLocalStorage();
+    this.router.navigate(['cake']);
+  }
+
+  clearLocalStorage(){
+    localStorage.clear();
   }
 
 }

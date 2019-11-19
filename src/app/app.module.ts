@@ -15,6 +15,8 @@ import { AddPombosujoComponent } from './components/participante/add-pombosujo/a
 import { ListPombosujoComponent } from './components/participante/list-pombosujo/list-pombosujo.component';
 import { AddSorteioComponent } from './components/sorteio/add-sorteio/add-sorteio.component';
 import { ListSorteioComponent } from './components/sorteio/list-sorteio/list-sorteio.component';
+import { ListCakeComponent } from './components/cake/list-cake/list-cake.component';
+import { AddCakeComponent } from './components/cake/add-cake/add-cake.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ListSorteioComponent } from './components/sorteio/list-sorteio/list-sor
     AddPombosujoComponent,
     ListPombosujoComponent,
     AddSorteioComponent,
-    ListSorteioComponent
+    ListSorteioComponent,
+    ListCakeComponent,
+    AddCakeComponent
   ],
   imports: [
     BrowserModule,

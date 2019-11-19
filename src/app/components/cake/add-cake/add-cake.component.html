@@ -1,0 +1,53 @@
+<div>
+    <form method="POST">
+        <fieldset name=" Cake ">
+          <legend><b> CAKE </b></legend>
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input id="name" class="input" type="text" placeholder="Name Cake" required [(ngModel)]="cake.name" name="name">
+            </div>
+            
+          </div>
+          <div class="field">
+            <label class="label">Description</label>
+            <div class="control">
+              <input id="description" class="input" type="text" placeholder="Description Cake" required [(ngModel)]="cake.description" name="description">
+            </div>
+          </div>
+
+          <!--<div class="field">
+            <label class="label">Type</label>
+            <div class="select">
+              <select id="type" required [(ngModel)]="cake.type" name="type">
+                <option>Baby</option>
+                <option>Birthday</option>
+                <option>Comum</option>
+                <option>Torta</option>
+                <option>Brownie</option>
+              </select>
+            </div>
+          </div>-->
+
+          <div class="field">
+            <label class="label">Price</label>
+            <div class="control">
+              <input id="price" class="input" type="text" placeholder="price Cake" required [(ngModel)]="cake.price" name="price">
+            </div>
+          </div>
+        </fieldset>
+        <br>
+        <div class="field is-grouped is-grouped-right">
+            <div class="buttons">
+              <button class="button is-primary" (click)="saveCake()" type="submit" >
+                Save Cake
+              </button>
+  
+              <button class="button is-light" (click)="cancel()" type="reset" >
+                Cancel
+              </button>
+            </div>
+        </div>
+    </form>
+  </div>
+  
