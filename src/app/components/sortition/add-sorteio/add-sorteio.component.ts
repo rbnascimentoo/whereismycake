@@ -43,7 +43,7 @@ export class AddSorteioComponent implements OnInit {
   makeSortiton() {
 
     //sorteio
-    this.sortitionService.listSortition().subscribe(data => {
+    /*this.sortitionService.listSortition().subscribe(data => {
       Array.of(data[0]).forEach(s => {
         this.listSortition.push(s);
       });
@@ -75,13 +75,12 @@ export class AddSorteioComponent implements OnInit {
     
             });
           } else {
-    
-            console.log(this.listSortition.some(x => x.participantId === this.participant._id));
-            while (this.listSortition.some(x => x.participantId === this.participant._id)) {
+     
+            while (this.listSortition.some(x => x.participantId === this.participant._id && x.numberSortition)) {
               this.participant = this.random(this.listParticipant[0]);
             }
     
-            if (this.listSortition[0].numberSortition <= this.listParticipant.length) {
+            if (this.listSortition.length <= this.listParticipant.length) {
               this.sortition = new Sortition(null, new Date(), this.listSortition[0].rodada, this.listSortition[0].numberSortition + 1, this.participant._id, this.cake._id);
             } else {
               this.sortition = new Sortition(null, new Date(), this.listSortition[0].rodada + 1, this.listSortition[0].numberSortition + 1, this.participant._id, this.cake._id);
@@ -104,7 +103,7 @@ export class AddSorteioComponent implements OnInit {
 
     }, err => {
       console.log('error find sortitions.');
-    });
+    });*/
 
   }
 
