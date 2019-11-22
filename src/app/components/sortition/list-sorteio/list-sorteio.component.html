@@ -1,0 +1,42 @@
+<div [hidden]="showDataTable()">
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th><abbr title="Nº do Sorteio">Nº do Sorteio</abbr></th>
+        <th>Sorteado</th>
+        <th>Bolo</th>
+        <th>Rodada</th>
+        <th>Data do Sorteio</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sorteio of listSortition[0]">
+        <td>{{ sorteio.numberSortition }}</td>
+        <td>{{ sorteio.participantId.name }}</td>
+        <td>{{ sorteio.cakeId.name }}</td>
+        <td>{{ sorteio.rodada }}</td>
+        <td>{{ sorteio.date | date : "dd/MM/y"  }}</td>
+        <td style="width: 20%;">
+          <button class="button is-link is-outlined is-info" (click)="viewSortition(sorteio)" style="margin-right: 10px;">
+              View
+          </button>
+
+          <button class="button is-link is-outlined is-danger" (click)="deleteSortition(sorteio._id)" >
+              Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div [hidden]="!showDataTable()">
+  Não há sorteios.
+</div>
+
+<br>
+
+<div class="buttons" style="float: right; margin-right: 15px;">
+  <button class="button is-link is-outlined" (click)="newSortition()">New Sortition</button>
+</div>

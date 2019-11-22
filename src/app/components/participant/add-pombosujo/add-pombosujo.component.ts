@@ -1,7 +1,7 @@
-import { Participante } from '../../../models/Participante';
+import { Participant } from '../../../models/Participant';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ParticipanteService } from 'src/app/services/participante/participante.service';
+import { ParticipantService } from 'src/app/services/participant/participant.service';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -13,15 +13,15 @@ export class AddPombosujoComponent implements OnInit {
 
   nomeValid: boolean = false;
   apelidoValid: boolean = false;
-  participante: Participante;
-  constructor(private router: Router, private participanteService: ParticipanteService) { }
+  participant: Participant;
+  constructor(private router: Router, private participantService: ParticipantService) { }
 
   ngOnInit() {
     this.createNewParticipante();
 
     if(localStorage.getItem('id') != undefined && localStorage.getItem('id') != null) {
-      this.participanteService.obterParticipante(localStorage.getItem('id')).subscribe(data => {
-            this.participante = data;
+      this.participantService.findParticipant(localStorage.getItem('id')).subscribe(data => {
+            this.participant = data;
         }, err => {
   
         });
@@ -30,27 +30,27 @@ export class AddPombosujoComponent implements OnInit {
   }
 
   createNewParticipante() {
-    this.participante = new Participante(null, null, null);
+    this.participant = new Participant(null, null, null);
 
     this.nomeValid = false;
     this.apelidoValid = false;
   }
 
-  salvarParticipante() {
+  saveParticipant() {
 
    this.validarParticipante();
 
     if(this.nomeValid && this.apelidoValid){
 
-      if (this.participante._id != null && this.participante._id.length > 0) {
-        this.participanteService.editarParticipante(this.participante).subscribe(data => {  
+      if (this.participant._id != null && this.participant._id.length > 0) {
+        this.participantService.editParticipant(this.participant).subscribe(data => {  
           this.createNewParticipante();
           this.router.navigate(['participant']);
         }, err => {
           console.log('erro ao atualizar participante!');
         });
       } else {
-        this.participanteService.salvarParticipante(this.participante).subscribe(data => {  
+        this.participantService.saveParticipant(this.participant).subscribe(data => {  
           this.createNewParticipante();
           this.router.navigate(['participant']);
         }, err => {
@@ -64,16 +64,16 @@ export class AddPombosujoComponent implements OnInit {
   }
 
   validarParticipante(){
-    if(this.participante.nome != null && this.participante.nome.length > 0 && this.participante.nome != undefined) {
+    if(this.participant.name != null && this.participant.name.length > 0 && this.participant.name != undefined) {
       this.nomeValid = true;
     }
 
-    if(this.participante.apelido != null && this.participante.apelido.length > 0 && this.participante.apelido != undefined) {
+    if(this.participant.nickname != null && this.participant.nickname.length > 0 && this.participant.nickname != undefined) {
       this.apelidoValid = true;
     }
   }
 
-  cancelarInclusaoPombo() {
+  cancel() {
     this.createNewParticipante();
     this.router.navigate(['participant']);
   }

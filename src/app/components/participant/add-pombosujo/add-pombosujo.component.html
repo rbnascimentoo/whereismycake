@@ -1,18 +1,18 @@
 <div>
   <form method="POST">
-      <fieldset name=" Participante ">
+      <fieldset name=" Participant ">
         <legend><b> Participant </b></legend>
         <div class="field">
           <label class="label">Name</label>
           <div class="control">
-            <input id="nome" class="input" type="text" placeholder="Nome do participante" required [(ngModel)]="participante.nome" name="nome">
+            <input id="name" class="input" type="text" placeholder="Name participant" required [(ngModel)]="participant.name" name="name">
           </div>
           
         </div>
         <div class="field">
           <label class="label">Nickname</label>
           <div class="control">
-            <input id="apelido" class="input" type="text" placeholder="Apelido do participante" required [(ngModel)]="participante.apelido" name="apelido">
+            <input id="nickname" class="input" type="text" placeholder="Nickname participant" required [(ngModel)]="participant.nickname" name="nickname">
             
           </div>
         </div>
@@ -20,11 +20,11 @@
       <br>
       <div class="field is-grouped is-grouped-right">
           <div class="buttons">
-            <button class="button is-primary" (click)="salvarParticipante()" type="submit" >
+            <button class="button is-primary" (click)="saveParticipant()" type="submit" >
               Save Participant
             </button>
 
-            <button class="button is-light" (click)="cancelarInclusaoPombo()" type="reset" >
+            <button class="button is-light" (click)="cancel()" type="reset" >
               Cancel
             </button>
           </div>

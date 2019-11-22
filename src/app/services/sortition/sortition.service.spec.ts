@@ -1,11 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { ParticipanteService } from './participante.service';
 
-describe('PombosujoService', () => {
+import { SortitionService } from './sortition.service';
+
+describe('SorteioService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ParticipanteService = TestBed.get(ParticipanteService);
+    const service: SortitionService = TestBed.get(SortitionService);
     expect(service).toBeTruthy();
   });
 });

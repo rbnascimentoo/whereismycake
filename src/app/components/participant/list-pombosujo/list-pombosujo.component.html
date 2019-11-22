@@ -1,0 +1,39 @@
+<div [hidden]="showDataTable()">
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Nickname</th>
+        <th style="width: 20%;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let participant of listParticipant[0]; let i = index" >
+        <td>{{ i+1 }}</td>
+        <td>{{ participant.name }}</td>
+        <td>{{ participant.nickname }}</td>
+        <td style="width: 20%;">
+
+          <button class="button is-link is-outlined is-warning" (click)="editParticipant(participant._id)" style="margin-right: 10px;">
+              Edit
+          </button>
+
+          <button class="button is-link is-outlined is-danger" (click)="deleteParticipant(participant._id)" >
+              Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div [hidden]="!showDataTable()">
+  Não há participantes.
+</div>
+
+<br>
+
+<div class="buttons" style="float: right; margin-right: 15px;">
+  <button class="button is-link is-outlined" (click)="newParticipant()">New Participant</button>
+</div>
