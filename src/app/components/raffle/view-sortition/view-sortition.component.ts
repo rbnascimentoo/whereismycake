@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SortitionService } from 'src/app/services/sortition/sortition.service';
-import { Sortition } from 'src/app/models/Sortition';
+import { RaffleService } from 'src/app/services/raffle/raffle.service';
+import { Raffle } from 'src/app/models/Raffle';
 
 @Component({
   selector: 'app-view-sortition',
@@ -10,11 +10,11 @@ import { Sortition } from 'src/app/models/Sortition';
 })
 export class ViewSortitionComponent implements OnInit {
 
-  sortiton: Sortition;
-  constructor(private router: Router, private sortitionService: SortitionService) { }
+  sortiton: Raffle;
+  constructor(private router: Router, private raffleService: RaffleService) { }
 
   ngOnInit() {
-    this.sortiton = JSON.parse(localStorage.getItem('sortition'));
+    this.sortiton = JSON.parse(localStorage.getItem('raffle'));
   }
 
 }

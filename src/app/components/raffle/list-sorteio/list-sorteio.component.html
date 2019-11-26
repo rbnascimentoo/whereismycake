@@ -11,18 +11,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let sorteio of listSortition[0]">
-        <td>{{ sorteio.numberSortition }}</td>
-        <td>{{ sorteio.participantId.name }}</td>
-        <td>{{ sorteio.cakeId.name }}</td>
-        <td>{{ sorteio.rodada }}</td>
-        <td>{{ sorteio.date | date : "dd/MM/y"  }}</td>
+      <tr *ngFor="let raffle of listRaffle[0]">
+        <td>{{ raffle.numberRaffle }}</td>
+        <td>{{ raffle.participantId.name }}</td>
+        <td>{{ raffle.cakeId.name }}</td>
+        <td>{{ raffle.rodada }}</td>
+        <td>{{ raffle.date | date : "dd/MM/y"  }}</td>
         <td style="width: 20%;">
-          <button class="button is-link is-outlined is-info" (click)="viewSortition(sorteio)" style="margin-right: 10px;">
+          <button class="button is-link is-outlined is-info" (click)="viewRaffle(raffle)" style="margin-right: 10px;">
               View
           </button>
 
-          <button class="button is-link is-outlined is-danger" (click)="deleteSortition(sorteio._id)" >
+          <button class="button is-link is-outlined is-danger" (click)="deleteRaffle(raffle._id)" >
               Delete
           </button>
         </td>
@@ -38,5 +38,5 @@
 <br>
 
 <div class="buttons" style="float: right; margin-right: 15px;">
-  <button class="button is-link is-outlined" (click)="newSortition()">New Sortition</button>
+  <button class="button is-link is-outlined" (click)="newRaffle()">New Raffle</button>
 </div>

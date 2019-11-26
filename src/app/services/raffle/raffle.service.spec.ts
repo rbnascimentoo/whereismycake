@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SortitionService } from './sortition.service';
+import { RaffleService } from './raffle.service';
 
 describe('SorteioService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SortitionService = TestBed.get(SortitionService);
+    const service: RaffleService = TestBed.get(RaffleService);
     expect(service).toBeTruthy();
   });
 });

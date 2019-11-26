@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SortitionService } from 'src/app/services/sortition/sortition.service';
-import { Sortition } from 'src/app/models/Sortition';
+import { RaffleService } from 'src/app/services/raffle/raffle.service';
+import { Raffle } from 'src/app/models/Raffle';
 import { ParticipantService } from 'src/app/services/participant/participant.service';
 import { Participant } from 'src/app/models/Participant';
 import { CakeService } from 'src/app/services/cake/cake.service';
@@ -20,27 +20,27 @@ export class AddSorteioComponent implements OnInit {
   listCake: Array<Cake> = new Array<Cake>();
   cake: Cake = new Cake(null, null, null);
 
-  listSortition: Array<Sortition> = new Array<Sortition>();
-  sortition: Sortition;
+  listRaffle: Array<Raffle> = new Array<Raffle>();
+  raffle: Raffle;
 
-  constructor(private router: Router, private sortitionService: SortitionService,
+  constructor(private router: Router, private raffleService: RaffleService,
     private participantService: ParticipantService, private cakeService: CakeService) { }
 
   ngOnInit() {
-    this.creteNewSorteio();
+    this.creteNewRaffle();
   }
 
-  creteNewSorteio() {
-    this.sortition = new Sortition(null, null, null, null, null, null);
+  creteNewRaffle() {
+    this.raffle = new Raffle(null, null, null, null, null, null);
     this.cake = new Cake(null, null, null);
     this.participant = new Participant(null, null, null);
 
     this.listParticipant = new Array<Participant>();
-    this.listSortition = new Array<Sortition>();
+    this.listRaffle = new Array<Raffle>();
     this.listCake = new Array<Cake>();
   }
 
-  makeSortiton() {
+  makeRaffle() {
 
     //sorteio
     /*this.sortitionService.listSortition().subscribe(data => {

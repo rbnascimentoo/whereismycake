@@ -24,9 +24,9 @@ export class NavComponent implements OnInit {
     this.router.navigate(['participant']);
   }
 
-  sortition() {
+  raffle() {
     this.clearLocalStorage();
-    this.router.navigate(['sortition']);
+    this.router.navigate(['raffle']);
   }
 
   cake() {

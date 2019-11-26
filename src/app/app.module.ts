@@ -13,11 +13,11 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { AddPombosujoComponent } from './components/participant/add-pombosujo/add-pombosujo.component';
 import { ListPombosujoComponent } from './components/participant/list-pombosujo/list-pombosujo.component';
-import { AddSorteioComponent } from './components/sortition/add-sorteio/add-sorteio.component';
-import { ListSorteioComponent } from './components/sortition/list-sorteio/list-sorteio.component';
+import { AddSorteioComponent } from './components/raffle/add-sorteio/add-sorteio.component';
+import { ListSorteioComponent } from './components/raffle/list-sorteio/list-sorteio.component';
 import { ListCakeComponent } from './components/cake/list-cake/list-cake.component';
 import { AddCakeComponent } from './components/cake/add-cake/add-cake.component';
-import { ViewSortitionComponent } from './components/sortition/view-sortition/view-sortition.component';
+import { ViewSortitionComponent } from './components/raffle/view-sortition/view-sortition.component';
 
 @NgModule({
   declarations: [
