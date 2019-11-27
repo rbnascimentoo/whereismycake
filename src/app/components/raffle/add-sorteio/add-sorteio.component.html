@@ -1,6 +1,11 @@
 
 <div>
-    <!--<button (click)="makeRaffle()" >realizarSorteio</button>-->
-    <progress class="progress is-small is-primary" max="100">15%</progress>
+    <div class="buttons" style="float: right; margin-right: 15px;">
+        <button *ngIf="!makeSortition" class="button is-link is-outlined" (click)="sortition()">Sortition</button>
+    </div>
+
+    <div *ngIf="makeSortition">
+        <progress class="progress is-small is-primary" max="100">15%</progress>
+    </div>
 </div>
 

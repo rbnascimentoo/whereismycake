@@ -24,14 +24,13 @@ export class ListSorteioComponent implements OnInit {
     this.listRaffle = new Array<Raffle>();
     this.raffleService.listRaffle().subscribe(data => {
       Array.of(data).forEach(s => {
-        if (s != undefined) {
+        if (s !== undefined) {
           this.listRaffle.push(s);
         }
       });
     }, err => {
       console.log('error find raffle.');
     });
-
   }
 
   newRaffle() {

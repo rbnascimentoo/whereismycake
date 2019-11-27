@@ -23,14 +23,48 @@ export class AddSorteioComponent implements OnInit {
   listRaffle: Array<Raffle> = new Array<Raffle>();
   raffle: Raffle;
 
+  makeSortition: boolean = false;
+
   constructor(private router: Router, private raffleService: RaffleService,
-    private participantService: ParticipantService, private cakeService: CakeService) { }
+              private participantService: ParticipantService, private cakeService: CakeService) { }
 
   ngOnInit() {
     this.creteNewRaffle();
+
+    this.cakeService.listCake().subscribe(data => {
+      Array.of(data).forEach(element => {
+        if(element !== undefined && element != null) {
+          this.listCake.push(element);
+        }
+      });
+    }, err => {
+      console.log('error find cakes.');
+    });
+
+    this.participantService.listParticipant().subscribe(data => {
+      Array.of(data).forEach(element => {
+        if(element !== undefined && element != null) {
+          this.listParticipant.push(element);
+        }
+      });
+    }, err => {
+      console.log('error find participants.');
+    });
+
+    this.raffleService.listRaffle().subscribe(data => {
+      Array.of(data).forEach(element => {
+        if(element !== undefined && element != null) {
+          this.listRaffle.push(element);
+        }
+      });
+    }, err => {
+      console.log('error find raffles.');
+    });
   }
 
   creteNewRaffle() {
+    this.makeSortition = false;
+
     this.raffle = new Raffle(null, null, null, null, null, null);
     this.cake = new Cake(null, null, null);
     this.participant = new Participant(null, null, null);
@@ -40,80 +74,73 @@ export class AddSorteioComponent implements OnInit {
     this.listCake = new Array<Cake>();
   }
 
-  makeRaffle() {
+  sortition() {
 
-    //sorteio
-    /*this.sortitionService.listSortition().subscribe(data => {
-      Array.of(data[0]).forEach(s => {
-        this.listSortition.push(s);
+    this.makeSortition = true;
+
+    this.participant = this.random(this.listParticipant[0], null);
+    this.cake = this.random(this.listCake[0], null);
+
+    if (this.listRaffle.length === 0 || this.listRaffle == null
+        || this.listRaffle === undefined || this.listRaffle[0] === undefined
+        || this.listRaffle[0]._id == null || this.listRaffle[0]._id === undefined) {
+
+      this.raffle = new Raffle(null, new Date(), 1, 1, this.participant._id, this.cake._id);
+
+      this.raffleService.saveRaffle(this.raffle).subscribe(data => {
+        this.router.navigate(['raffle']);
+      }, err => {
+
+      });
+    } else {
+
+      /* let rodada = 0;
+      let numeroSorteio = 0;
+      this.listRaffle.forEach(i => {
+        if (rodada <= i.rodada) {
+          rodada = i.rodada;
+        }
+        if (numeroSorteio <= i.numberRaffle) {
+          numeroSorteio = i.numberRaffle;
+        }
       });
 
-      //participantes
-      this.participantService.listParticipant().subscribe(data => {
-        //this.listPombo = data;
-        Array.of(data).forEach(element => {
-          this.listParticipant.push(element);
+      let indexs: Array<number>;
+
+      if(this.listRaffle.filter(r => r.rodada === rodada).length < this.listParticipant.length) {
+        this.listRaffle.filter(r => r.rodada === rodada).forEach(f => {
+          if (f.participantId === this.participant._id) {
+            indexs.push( this.listRaffle.indexOf(f));
+            this.participant = this.random(this.listParticipant, indexs);
+          }
         });
 
-        this.cakeService.listCake().subscribe(data => {
-          Array.of(data).forEach(c => {
-            this.listCake.push(c);
-          });
+        this.raffle = new Raffle(null, new Date(), rodada, numeroSorteio+1, this.participant._id, this.cake._id);
+      } else {
 
-          this.participant = this.random(this.listParticipant[0]);
-          this.cake = this.random(this.listCake[0]);
+        this.raffle = new Raffle(null, new Date(), rodada+1, numeroSorteio+1, this.participant._id, this.cake._id);
+      }
 
-          if (this.listSortition === null || this.listSortition.length === 0
-            || this.listSortition === undefined || this.listSortition[0] === null
-            || this.listSortition[0] === undefined) {
-    
-            this.sortition = new Sortition(null, new Date(), 1, 1, this.participant._id, this.cake._id);
-    
-            this.sortitionService.saveSortition(this.sortition).subscribe(data => {
-              this.router.navigate(['sortition']);
-            }, err => {
-    
-            });
-          } else {
-     
-            while (this.listSortition.some(x => x.participantId === this.participant._id && x.numberSortition)) {
-              this.participant = this.random(this.listParticipant[0]);
-            }
-    
-            if (this.listSortition.length <= this.listParticipant.length) {
-              this.sortition = new Sortition(null, new Date(), this.listSortition[0].rodada, this.listSortition[0].numberSortition + 1, this.participant._id, this.cake._id);
-            } else {
-              this.sortition = new Sortition(null, new Date(), this.listSortition[0].rodada + 1, this.listSortition[0].numberSortition + 1, this.participant._id, this.cake._id);
-            }
-    
-            this.sortitionService.saveSortition(this.sortition).subscribe(data => {
-              this.router.navigate(['sortition']);
-            }, err => {
-    
-            });
-          }
-  
-        }, err => {
-          console.log('error find cakes.');
-        }); 
-
+      this.raffleService.saveRaffle(this.raffle).subscribe(data => {
+        this.router.navigate(['raffle']);
       }, err => {
-        console.log('error find participants.');
-      });
 
-    }, err => {
-      console.log('error find sortitions.');
-    });*/
-
+      }); */
+    }
   }
 
-  random(element) {
-    if (element != null && element != undefined) {
-      return element[Math.floor(Math.random() * element.length)];
+  random(element, index) {
+
+    if (index != null) {
+      index.array.forEach(i => {
+        index.splice(i, 1);
+      });
     }
 
-    return;
-
+    if (element != null && element !== undefined) {
+      return element[Math.floor(Math.random() * element.length)];
+    }
+    return null;
   }
 
 }
